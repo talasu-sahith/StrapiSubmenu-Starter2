@@ -11,26 +11,25 @@ const Sidebar = () => {
           <FaTimes />
         </button>
         <div className="sidebar-links">
-          <ul className="sublinks">
-            {sublinks.map((item) => {
-              const { pageId, page, links } = item;
-              return (
-                <li key={pageId}>
-                  {page}
-                  <ul className="links">
-                    {links.map((item) => {
-                      const { id, label, icon, url } = item;
-                      return (
-                        <li key={id}>
-                          {icon} <a href={url}>{label}</a>{" "}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              );
-            })}
-          </ul>
+          {sublinks.map((item) => {
+            const { pageId, page, links } = item;
+            return (
+              <article key={pageId}>
+                <h4>{page}</h4>
+                <div className="sidebar-sublinks">
+                  {links.map((item) => {
+                    const { id, label, icon, url } = item;
+                    return (
+                      <a key={id} href={url}>
+                        {icon}
+                        {label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </aside>

@@ -331,10 +331,8 @@ nav {
   .toggle-btn {
     display: none;
   }
-  .sidebar {
-    display: none;
-  }
 }
+/* =============Sidebar CSS============== */
 
 .sidebar {
   position: fixed;
@@ -343,32 +341,84 @@ nav {
   background-color: white;
   width: 100vw;
   height: 100vh;
+  /* toggle */
+  opacity: 1;
+  visibility: visible;
 }
+
 .hide-sidebar {
   display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 .sidebarcontainer {
-  width: 90vw;
-  max-width: var(--fluid-width);
-  margin: 3rem auto;
-  /* display: grid;
-  grid-template-rows: 2; */
+  padding: 4rem 2rem;
+  position: relative;
 }
 .close-btn {
   position: absolute;
-  top: 2rem;
-  right: 3rem;
+  top: 1rem;
+  right: 2rem;
   background-color: transparent;
   border-color: transparent;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--red-dark);
   cursor: pointer;
 }
-.sublinks {
-  text-transform: capitalize;
-  color: var(--primary-500);
+.sidebar article {
+  margin-bottom: 2rem;
 }
-.links {
+.sidebar h4 {
+  margin-bottom: 1rem;
+  color: var(--primary-800);
+}
+.sidebar-sublinks {
   display: grid;
-  grid-template-columns: 2;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5rem;
+}
+.sidebar-sublinks a {
+  display: block;
+  color: var(--grey-900);
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sidebar-sublinks svg {
+  color: var(--grey-500);
+}
+@media screen and (min-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* ================NAV Links=================== */
+
+.nav-links {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    border: 2px solid red;
+  }
+  .nav-center {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border: 2px solid yellow;
+  }
+  .nav-link {
+    border: 2px solid blue;
+    padding: 0 1rem;
+    color: white;
+    background-color: transparent;
+    text-transform: capitalize;
+    /* border-color: transparent; */
+    font-size: 1.25rem;
+    letter-spacing: var(--letterSpacing);
+  }
 }
