@@ -269,6 +269,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
 }
 .nav-center {
   width: var(--fluid-width);
@@ -282,7 +283,7 @@ nav {
   letter-spacing: 3px;
   color: white;
   font-weight: 700;
-  padding-left: 1.5rem;
+  /* padding-left: 1.5rem; */
 }
 .toggle-btn {
   width: 2rem;
@@ -404,21 +405,67 @@ nav {
   .nav-links {
     display: flex;
     justify-content: center;
-    border: 2px solid red;
+    align-self: stretch;
   }
   .nav-center {
+    align-self: stretch;
     display: grid;
     grid-template-columns: auto 1fr;
-    border: 2px solid yellow;
   }
   .nav-link {
-    border: 2px solid blue;
     padding: 0 1rem;
     color: white;
     background-color: transparent;
     text-transform: capitalize;
-    /* border-color: transparent; */
+    border-color: transparent;
     font-size: 1.25rem;
     letter-spacing: var(--letterSpacing);
+  }
+}
+/* ==============SubMenu================ */
+
+.submenu {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .submenu {
+    display: block;
+    position: fixed;
+    top: 6rem;
+    left: 50%;
+    width: var(--fluid-width);
+    max-width: var(--max-width);
+    background-color: white;
+    padding: 2rem;
+    transform: rotateX(-90deg) translateX(-50%);
+    transform-origin: top;
+    perspective: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  }
+  .show-submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateX(0deg) translateX(-50%);
+  }
+  .submenu h5 {
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+  .submenu-links {
+    display: grid;
+    row-gap: 0.5rem;
+  }
+  .submenu-links a {
+    display: block;
+    color: var(--grey-900);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .submenu-links svg {
+    color: var(--grey-500);
   }
 }
